@@ -10,7 +10,7 @@
         }
 
         [TestMethod]
-        public void GetArea_5_25PI()
+        public void CalculateAreaOfCircle_5_25PI()
         {
             IShapeWithArea shape = new Circle(5);
             double expected = 25 * Math.PI;

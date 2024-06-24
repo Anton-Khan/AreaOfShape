@@ -10,7 +10,7 @@
         }
 
         [TestMethod]
-        public void GetArea_345_6()
+        public void CalculateAreaOfTriangle_345_6()
         {
             IShapeWithArea shape = new Triangle(3, 4, 5);
             double expected = 6;
