@@ -7,7 +7,10 @@
 
 ## Скрипт
 SELECT Products.ProductName, Categories.CategoryName FROM Products
+
 LEFT JOIN ProductToCategory ON Products.ProductID = ProductToCategory.ProductID
+
 LEFT JOIN Categories ON ProductToCategory.CategoryID = Categories.CategoryID
+
 ORDER BY Products.ProductName, Categories.CategoryName;
 
