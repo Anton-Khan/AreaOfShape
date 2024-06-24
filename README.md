@@ -15,7 +15,8 @@ LEFT JOIN Categories ON ProductToCategory.CategoryID = Categories.CategoryID
 ORDER BY Products.ProductName, Categories.CategoryName;
 
 # Были ли опыт с front-end?
-Пробовал делать pet-проект на React+TS + отдельный проект с API 
+Пробовал делать pet-проект на React+TS + отдельный проект с API
+
 https://github.com/Anton-Khan/petshop.front
 
 https://github.com/Anton-Khan/Petshop.Api
