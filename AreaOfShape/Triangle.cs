@@ -2,14 +2,11 @@
 {
     public class Triangle : IShapeWithArea
     {
+        private const string errorMessage = "Sides of triangle must be greater than 0";
         public Triangle(double a, double b, double c)
         {
-            if (a <= 0)
-                throw new ArgumentOutOfRangeException(nameof(a), "Sides of triangle must be greater than 0");
-            if (b <= 0)
-                throw new ArgumentOutOfRangeException(nameof(b), "Sides of triangle must be greater than 0");
-            if (c <= 0)
-                throw new ArgumentOutOfRangeException(nameof(c), "Sides of triangle must be greater than 0");
+            ValidateSidesLength(a, b, c);
+            ValidateTriangle();
 
             A = a;
             B = b;
@@ -20,14 +17,21 @@
         public double B { get; }
         public double C { get; }
 
-        public bool IsEquilateral()
+        private void ValidateSidesLength(double a, double b, double c)
         {
-            return A == B && B == C;
+            if (a <= 0)
+                throw new ArgumentOutOfRangeException(nameof(a), errorMessage);
+            if (b <= 0)
+                throw new ArgumentOutOfRangeException(nameof(b), errorMessage);
+            if (c <= 0)
+                throw new ArgumentOutOfRangeException(nameof(c), errorMessage);
         }
 
-        public bool IsIsosceles()
+        private void ValidateTriangle()
         {
-            return A == B || B == C || A == C;
+            var sides = new[] { A, B, C }.OrderBy(x => x).ToArray();
+            if(sides[0] + sides[1] > sides[2])
+                throw new ArgumentException("Triangle with these sides cannot exist.");
         }
 
         public bool IsRightAngled()
@@ -36,7 +40,7 @@
             return Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2) == Math.Pow(sides[2], 2);
         }
 
-        public double GetHalfOfPerimeter()
+        protected double GetHalfOfPerimeter()
         {
             return (A + B + C) / 2;
         }

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Area\AreaOfShape.csproj" />
+    <ProjectReference Include="..\AreaOfShape\AreaOfShape.csproj" />
   </ItemGroup>
 
   <ItemGroup>
